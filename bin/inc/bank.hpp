@@ -15,50 +15,50 @@ namespace accounts
     class BankAccount
     {
         double balance, rate, minimum_balance, transaction_limit, overdraft;
-        std::string acc_no, acc_type, date_of_creation;
+        std::string acc_type, date_of_creation;
 
     protected:
-        BankAccount(double, double, double, double, double, std::string, std::string, std::string);
+        BankAccount(double, double, double, double, double, std::string);
     };
 
     class CurrentAccount : public BankAccount
     {
     public:
-        CurrentAccount(double, std::string, std::string);
+        CurrentAccount(double, std::string);
     };
 
     class SavingsAccount : public BankAccount
     {
     public:
-        SavingsAccount(double, std::string, std::string);
+        SavingsAccount(double, std::string);
     };
 
     class SalaryAccount : public BankAccount
     {
     public:
-        SalaryAccount(double, std::string, std::string);
+        SalaryAccount(double, std::string);
     };
 
     class FixedDepositAccount : public BankAccount
     {
     public:
-        FixedDepositAccount(double, std::string, std::string);
+        FixedDepositAccount(double, std::string);
     };
 
     class ZeroBalanceAccount : public BankAccount
     {
     public:
-        ZeroBalanceAccount(double, std::string, std::string);
+        ZeroBalanceAccount(double, std::string);
     };
 
     class AccountHolder
     {
-        std::string first_name, last_name, email_address, phone_number, date_of_birth, job_title, pancard_number;
+        std::string first_name, last_name, email_address, phone_number, date_of_birth, job_title, pancard_number, acc_no;
         Address address;
         BankAccount account;
 
     public:
-        AccountHolder(std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, int, std::string);
+        AccountHolder(std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, std::string, int, std::string, double, std::string);
     };
 
     inline std::string createAccountNo(char, char, std::string, const std::string &);
