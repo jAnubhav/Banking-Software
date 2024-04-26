@@ -20,7 +20,7 @@ std::vector<T> extractData(std::string file_name, const U &str = "")
     std::string tempStr;
     std::vector<T> vec;
 
-    std::ifstream file("data/usable/" + file_name + ".bin", std::ios_base::binary);
+    std::ifstream file("data/" + file_name + ".bin", std::ios_base::binary);
     while (std::getline(file, tempStr))
         if constexpr (std::is_same<T, std::string>::value)
             vec.push_back(tempStr);
