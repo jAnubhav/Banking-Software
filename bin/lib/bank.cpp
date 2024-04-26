@@ -30,21 +30,69 @@ namespace
     }
 }
 
-accounts::BankAccount::BankAccount(double balance, double rate, double minimum_balance, double transaction_limit, double overdraft, std::string acc_no) : balance(balance), rate(rate), minimum_balance(minimum_balance), transaction_limit(transaction_limit), overdraft(overdraft), acc_type(acc_type), date_of_creation("Today")
+accounts::BankAccount::BankAccount(
+    double balance,
+    double rate,
+    double minimum_balance,
+    double transaction_limit,
+    double overdraft,
+    std::string acc_no)
+
+    : balance(balance),
+      rate(rate),
+      minimum_balance(minimum_balance),
+      transaction_limit(transaction_limit),
+      overdraft(overdraft),
+      acc_type(acc_type),
+      date_of_creation("Today")
+
 {
 }
 
-accounts::CurrentAccount::CurrentAccount(double balance, std::string acc_type) : BankAccount(balance, 0, 50000, -1, 1000000, acc_type) {}
+accounts::CurrentAccount::CurrentAccount(double balance, std::string acc_type)
+    : BankAccount(balance, 0, 50000, -1, 1000000, acc_type) {}
 
-accounts::SavingsAccount::SavingsAccount(double balance, std::string acc_type) : BankAccount(balance, 7, 10000, 250000, 0, acc_type) {}
+accounts::SavingsAccount::SavingsAccount(double balance, std::string acc_type)
+    : BankAccount(balance, 7, 10000, 250000, 0, acc_type) {}
 
-accounts::SalaryAccount::SalaryAccount(double balance, std::string acc_type) : BankAccount(balance, 5, 10000, -1, 250000, acc_type) {}
+accounts::SalaryAccount::SalaryAccount(double balance, std::string acc_type)
+    : BankAccount(balance, 5, 10000, -1, 250000, acc_type) {}
 
-accounts::FixedDepositAccount::FixedDepositAccount(double balance, std::string acc_type) : BankAccount(balance, 12, 50000, 0, balance * 1.5, acc_type) {}
+accounts::FixedDepositAccount::FixedDepositAccount(double balance, std::string acc_type)
+    : BankAccount(balance, 12, 50000, 0, balance * 1.5, acc_type) {}
 
-accounts::ZeroBalanceAccount::ZeroBalanceAccount(double balance, std::string acc_type) : BankAccount(balance, 3, 0, 100000, 0, acc_type) {}
+accounts::ZeroBalanceAccount::ZeroBalanceAccount(double balance, std::string acc_type)
+    : BankAccount(balance, 3, 0, 100000, 0, acc_type) {}
 
-// accounts::AccountHolder::AccountHolder(std::string first_name, std::string last_name, std::string email_address, std::string phone_number, std::string date_of_birth, std::string job_title, std::string pancard_number, std::string city, std::string district, std::string state, int pincode, std::string acc_type, double balance, std::string password) : first_name(first_name), last_name(last_name), email_address(email_address), phone_number(phone_number), date_of_birth(date_of_birth), job_title(job_title), pancard_number(pancard_number), address{pincode, city, state, district}, account(decideAccount(balance, acc_type)), acc_no(accounts::createAccountNo(first_name[0], last_name[0], )) {}
+accounts::AccountHolder::AccountHolder(
+    std::string first_name,
+    std::string last_name,
+    std::string email_address,
+    std::string phone_number,
+    std::string date_of_birth,
+    std::string job_title,
+    std::string pancard_number,
+    std::string city,
+    std::string district,
+    std::string state,
+    int pincode,
+    std::string acc_type,
+    double balance,
+    std::string password)
+
+    : first_name(first_name),
+      last_name(last_name),
+      email_address(email_address),
+      phone_number(phone_number),
+      date_of_birth(date_of_birth),
+      job_title(job_title),
+      pancard_number(pancard_number),
+      address{pincode, city, state, district},
+      account(decideAccount(balance, acc_type)),
+      acc_no(accounts::createAccountNo(first_name[0], last_name[0], pancard_number.substr(5, 4), acc_type))
+
+{
+}
 
 inline std::string accounts::createAccountNo(char f, char l, std::string num, const std::string &type) { return type + num + f + l; }
 
