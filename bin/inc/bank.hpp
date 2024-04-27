@@ -6,7 +6,7 @@
 
 namespace acc_types
 {
-    
+    extern const std::vector<std::pair<std::string, std::string>> types;
 }
 
 namespace accounts
