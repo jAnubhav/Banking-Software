@@ -12,7 +12,7 @@ namespace functions
 {
     inline auto str_only(const std::string &str) { return str; }
 
-    inline auto str_int(const std::string &str) { return std::make_pair(str, str.length()); }
+    inline auto str_int(const std::string &str) { return std::make_pair(str, static_cast<int>(str.length())); }
 
     inline auto str_str(const std::string &str) { return std::make_pair(str, str.substr(0, 3)); }
 
