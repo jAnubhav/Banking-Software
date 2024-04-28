@@ -1,3 +1,4 @@
+#include "../inc/format.hpp"
 #include "../inc/helper.hpp"
 #include "../inc/user.hpp"
 
@@ -10,7 +11,6 @@ const auto types = extractData("utility/account-types", functions::str_str);
 void printTypes(void) {
     int pad = 2;
 
-    
 }
 
 const std::vector<std::function<AccountHolder(void)>> interactions = {login, createAccount};
@@ -19,4 +19,12 @@ int initializer(void) {
     int choice;
 
 
+}
+
+AccountHolder login(void) {
+    return AccountHolder();
+}
+
+AccountHolder createAccount(void) {
+    return AccountHolder();
 }
