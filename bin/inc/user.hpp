@@ -7,9 +7,9 @@
 
 #include <vector>
 
-extern const std::vector<std::function<accounts::AccountHolder(void)>> interactions;
+extern const std::vector<std::function<AccountHolder(void)>> interactions;
 
 int initializer(void);
-accounts::AccountHolder login(void), createAccount(void);
+AccountHolder login(void), createAccount(void);
 
 #endif

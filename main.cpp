@@ -5,7 +5,7 @@
 int main()
 {
     int choice;
-    accounts::AccountHolder holder;
+    AccountHolder holder;
 
     while ((choice = initializer()) && choice % 3)
         holder = interactions.at(choice)();

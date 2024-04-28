@@ -1,9 +1,19 @@
 #include "../inc/helper.hpp"
 #include "../inc/user.hpp"
 
-const std::vector<std::pair<std::string, int>> words = extractData("utility/helping-words", functions::str_int);
+inline std::string rChar(const char &ch, const int &len) { return std::string(len, ch); }
 
-const std::vector<std::function<accounts::AccountHolder(void)>> interactions = {login, createAccount};
+const auto words = extractData("utility/helping-words", functions::str_int);
+const auto initials = extractData("utility/initials", functions::str_only);
+const auto types = extractData("utility/account-types", functions::str_str);
+
+void printTypes(void) {
+    int pad = 2;
+
+    
+}
+
+const std::vector<std::function<AccountHolder(void)>> interactions = {login, createAccount};
 
 int initializer(void) {
     int choice;
