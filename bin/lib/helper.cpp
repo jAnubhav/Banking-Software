@@ -1,5 +1,7 @@
 #include "../inc/helper.hpp"
 
+#include <iostream>
+#include <iomanip>
 #include <fstream>
 
 std::vector<std::string> extractData(std::string file_name)
@@ -35,4 +37,18 @@ std::vector<std::vector<std::string>> createType(const std::vector<std::string> 
         completeData.push_back({std::to_string(index++), val, val.substr(0, 3)});
 
     return completeData;
+}
+
+std::string rChar(const char &ch, const int &len) { return std::string(len, ch); }
+
+std::vector<std::string> rString(const char &ch, const std::vector<int> &data) {
+    std::vector<std::string> tempVec;
+
+    for (const int &val : data) tempVec.push_back(rChar(ch, val));
+
+    return tempVec;
+}
+
+void printLine(const char &ch1, const char &ch2, const std::vector<std::string> &data, const std::vector<int> &lengths, const int &pad) {
+
 }
