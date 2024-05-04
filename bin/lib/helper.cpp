@@ -41,14 +41,19 @@ std::vector<std::vector<std::string>> createType(const std::vector<std::string> 
 
 std::string rChar(const char &ch, const int &len) { return std::string(len, ch); }
 
-std::vector<std::string> rString(const char &ch, const std::vector<int> &data) {
+std::vector<std::string> rString(const char &ch, const std::vector<int> &data)
+{
     std::vector<std::string> tempVec;
 
-    for (const int &val : data) tempVec.push_back(rChar(ch, val));
+    for (const int &val : data)
+        tempVec.push_back(rChar(ch, val));
 
     return tempVec;
 }
 
-void printLine(const char &ch1, const char &ch2, const std::vector<std::string> &data, const std::vector<int> &lengths, const int &pad) {
-
+void printLine(const char &ch1, const char &ch2, const std::vector<std::string> &data, const std::vector<int> &lengths, const int &pad)
+{
+    for (int i = 0; i < data.size(); i++)
+        std::cout << ch1 << rChar(ch2, pad / 2) << std::left << std::setw(lengths.at(i)) << data.at(i) << rChar(ch2, pad / 2);
+    std::cout << ch1 << std::endl;
 }
