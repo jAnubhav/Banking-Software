@@ -3,4 +3,9 @@
 
 void printTypes(void);
 
+class AccountHolder {
+    public:
+    AccountHolder();
+};
+
 #endif
